@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  binance-bot:
+    build: .
+    container_name: binance_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./bot:/app/bot
+    command: python bot/main.py
